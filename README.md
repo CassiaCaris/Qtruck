@@ -22,7 +22,7 @@ $ git clone https://github.com/CassiaCaris/bootcampCypressAvancado.git
   1.1. Em um terminal baixar as dependencias de Test <br/>
      Na pasta de Test no terminal, informe o comando <br/>
      ```
-    $ yarn install
+    $ yarn install -D
     ```    <br/>
 
 *_2º Passo - Após o start da Aplicação Qtruck executar os testes em Cypress_* <br/>
