@@ -26,4 +26,39 @@ describe('Login', () => {
     cy.login(user)
     cy.modalHaveText('Credenciais inválidas, tente novamente!')
   })
+
+  //acresscentando novo cenário
+  it('Instagram no formato incorreto', () => {
+    const user = {
+      instagram: 'testcypress',
+      password: 'p123123'
+    }
+    cy.login(user)
+    cy.modalHaveText('Credenciais inválidas, tente novamente!')
+  })  
+
+  //desafio 15/08/2022
+  it('credenciais obrigatórias', () => {
+    cy.fieldNull()
+    cy.modalHaveText('Por favor, informe suas credenciais!')
+  })
+
+  it('instagram obrigatório', () => {
+    const user = {
+      password: 'p123123'
+    }
+    cy.intagramNull(user)
+    cy.modalHaveText('Por favor, informe o seu código do Instagram!')
+  })
+
+  it('senha obrigatória', () => {
+    const user = {
+      instagram: '@cassiabrilholuar'
+    }
+    cy.passwordNull(user)
+    cy.modalHaveText('Por favor, informe a sua senha secreta!')
+  })
+
 })
+
+

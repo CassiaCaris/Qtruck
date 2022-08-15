@@ -42,3 +42,20 @@ Cypress.Commands.add('login', (user)=> {
       .should('be.visible')
       .should('have.text', `Olá, ${name}`)
   })
+
+  Cypress.Commands.add('fieldNull',()=>{
+    cy.visit('/')
+    cy.contains('button', 'Entrar').click()
+  }) 
+
+  Cypress.Commands.add('intagramNull', (user)=> {
+    cy.visit('/')
+    cy.get('input[name=password]').type(user.password)
+    cy.contains('button', 'Entrar').click()
+  })
+
+  Cypress.Commands.add('passwordNull', (user)=> {
+    cy.visit('/')
+    cy.get('input[name=instagram]').type(user.instagram)
+    cy.contains('button', 'Entrar').click()
+  })
