@@ -1,7 +1,8 @@
 # Projeto de automação de QAcademy Bootcamp [Avançado em Cypress]
 
 Esse projeto é a criação da automação em cypress.<br/>
-Usando a Aplicação Qtruck desenvolvida para o curso
+Usando a Aplicação Qtruck desenvolvida para o curso. </br>
+Utilizando a estrutura do projeto como PageObject (PO).
 
 ## Componentes necessários para executar o projeto
 
