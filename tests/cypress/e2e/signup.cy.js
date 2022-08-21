@@ -8,13 +8,10 @@ describe('Signup', ()=> {
             instagram: '@foodtruck_hamburgao',
             password: 'abc123'
         }
-
         cy.apiResetUser(user.instagram)
-
         signupPage.go()
         signupPage.form(user)
-        signupPage.submit()
-        
+        signupPage.submit()        
         signupPage.modal.haveText('Agora você pode recomendar e/ou avaliar Food trucks.')
     })
 
@@ -24,13 +21,10 @@ describe('Signup', ()=> {
             instagram: 'teste_qa',
             password: '123pwd'
         }
-
         cy.apiCreateUser(user)
-
         signupPage.go()
         signupPage.form(user)
-        signupPage.submit()
-        
+        signupPage.submit()        
         signupPage.modal.haveText('Instagram já cadastrado!')
     })
 })
