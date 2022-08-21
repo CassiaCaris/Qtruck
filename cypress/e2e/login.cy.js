@@ -46,6 +46,7 @@ describe('Login', () => {
   //desafio 15/08/2022
   it('credenciais obrigatórias', () => {
     cy.login({})
+    //cy.fieldNull()
     cy.modalHaveText('Por favor, informe suas credenciais!')
   })
 
@@ -54,6 +55,7 @@ describe('Login', () => {
       password: 'p123123'
     }
     cy.login(user)
+    //cy.intagramNull(user)
     cy.modalHaveText('Por favor, informe o seu código do Instagram!')
   })
 
@@ -63,6 +65,7 @@ describe('Login', () => {
       senha: ''
     }
     cy.login(user)
+    //cy.passwordNull(user)
     cy.modalHaveText('Por favor, informe a sua senha secreta!')
   })
 

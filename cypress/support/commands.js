@@ -46,6 +46,7 @@ Cypress.Commands.add('login', (user)=> {
 
   //Correção do desafio onde esses pontos foram comentados, devido a resolução ser mais rápido no primeiro commands
   // dia 16/08
+  //remoção dos commands criados para o desafio
   //Cypress.Commands.add('fieldNull',()=>{
   //  cy.visit('/')
   //  cy.contains('button', 'Entrar').click()
