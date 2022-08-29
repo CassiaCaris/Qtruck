@@ -49,7 +49,7 @@ $ git clone https://github.com/CassiaCaris/bootcampCypressAvancado.git
     ```  <br/>      
 
 *_3º Passo - Após start o Frontend irá carregar a página do Qtruck_* <br/>
-  ![image](https://user-images.githubusercontent.com/32333336/184724714-85d58d7a-9a17-461b-833d-f95c34f57e49.png)
+  ![image](https://user-images.githubusercontent.com/32333336/185809547-24fff0bc-ead6-4ead-a9c5-d947daf0424b.png)
   <br/>
 
 *_4º Passo - Após o start da Aplicação Qtruck executar os testes em Cypress_* <br/>
