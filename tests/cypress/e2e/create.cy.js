@@ -14,7 +14,7 @@ describe('Recomendação', () => {
             latitude: '-23.592414732870456',
             longitude: '-46.686285734249395',
             name: 'Tienda Del Chavo',
-            details: 'O melhor luhgar para tomar suco de tamarindo que parece limão',
+            details: 'O melhor lugar para tomar suco de tamarindo que parece limão',
             opening_hours: 'das 14h as 20h',
             open_on_weekends: false
         }
@@ -27,32 +27,34 @@ describe('Recomendação', () => {
         createPage.modal.haveText('Food truck cadastrado com sucesso!')
     })
 
-    it('não deve cadastrar um food truck duplicado', () => {
-
+    it('não deve cadastrar foodtruck com o nome duplicado', ()=> {
         const user = {
-            name: 'Catarina',
-            instagram: '@catarina',
-            password: 'abc123'
+            name: 'Margaret',
+            instagram: '@margaret',
+            password: 'pwd123'
         }
 
         const foodtruck = {
-            latitude: '-23.457211026382886',
-            longitude: '-47.50049948706874',
-            name: 'Tienda Del Chavo',
-            details: 'O melhor luhgar para tomar suco de tamarindo que parece limão',
-            opening_hours: 'das 16h as 20h',
-            open_on_weekends: true
+            latitude: '-23.583654062428796',
+            longitude: '-46.67752861976624',
+            name: 'Churros da Dona Florinda',
+            details: 'O melhor churros mexicado da região.',
+            opening_hours: 'das 15h às 19h',
+            open_on_weekends: false
         }
 
         cy.apiCreateUser(user)
+        cy.apiLogin(user)
+        cy.apiCreateFoodTruck(foodtruck)
+
         cy.uiLogin(user)
+        
         mapPage.createLink()
         createPage.form(foodtruck)
         createPage.submit()
         createPage.modal.haveText('Esse food truck já foi cadastrado!')
     })
 
-    //campos obrigatórios
     it('Campos obrigatórias', () => {
         
         const user = {
@@ -69,9 +71,10 @@ describe('Recomendação', () => {
         cy.apiCreateUser(user)
         cy.uiLogin(user)
         mapPage.createLink()
-        createPage.form(foodtruck)
+        cy.setGeolocation(foodtruck.latitude, foodtruck.longitude)
         createPage.submit()
-        createPage.modal.haveText('O campos nome, descrição e horário de funcionamento devem ser informados para recomendar um food truck!')
+        const message = 'Os campos nome, descrição e horário de funcionamento devem ser informados para recomendar um food truck!'
+        createPage.modal.haveText(message)
     })
 
     it('Localização obrigatórias', () => {
