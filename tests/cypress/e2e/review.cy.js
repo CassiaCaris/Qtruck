@@ -33,6 +33,10 @@ describe('Avaliações', ()=> {
         cy.get(`input[name=stars][value="${review.stars}"]`)
           .click({force: true})
         cy.contains('button', 'Enviar avaliação').click()
-      
+                
+        cy.validationReview(user, review)
     })
+
 })
+
+
