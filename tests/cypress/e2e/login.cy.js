@@ -9,7 +9,7 @@ describe('Login', () => {
       password: 'pwd123'
     }
     //Aula do dia 16/08 criação de pageObject
-    loginPage.go()
+    loginPage.go(-23.65730018889836,-47.123408317565925)
     loginPage.form(user)
     loginPage.submit()
     mapPage.loggedUser(user.name)

@@ -6,8 +6,8 @@ class LoginPage {
         this.modal = modal
     }
     
-    go(lat = '-23.55052', long ='-46.67444') {
-        cy.visit('/')//, this.mockLocation(lat, long))
+    go(lat = '-23.65148726603776', long = '-47.21953896063575') {
+        cy.visit('/', this.mockLocation(lat, long))
     }
 
     form(user) {
@@ -23,17 +23,19 @@ class LoginPage {
         cy.contains('button', 'Cadastrar-se').click()
     }
 
-    //mockLocation(latitude, longitude) {
-    //    onbeforeunload(win) {
-    //        cy.stub(win.navigator.geolocation, "getCurrentPosition").callsFake((cb, err)) {
-    //            if (latitude && longitude) {
-    //                return cb({coords: {latitude, longitude} })
-    //            }
-    //            throw err({code: 1})
-    //        }
-    //           
-    //    };
-    //}
+    mockLocation(latitude, longitude) {
+        return {
+            onbeforeunload(win) {
+                cy.stub(win.navigator.geolocation, "getCurrentPosition").callsFake((cd,err)=> {
+                    if (latitude && longitude) {
+                        return createImageBitmap({coord: {latitude, longitude}})
+                    }
+                    throw err({code: 1})
+                });
+            }
+        }
+        
+    }
 }
 
 export default new LoginPage()
