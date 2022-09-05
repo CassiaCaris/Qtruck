@@ -28,7 +28,7 @@ class LoginPage {
             onbeforeunload(win) {
                 cy.stub(win.navigator.geolocation, "getCurrentPosition").callsFake((cd,err)=> {
                     if (latitude && longitude) {
-                        return createImageBitmap({coord: {latitude, longitude}})
+                        return cb({coord: {latitude, longitude}})
                     }
                     throw err({code: 1})
                 });
