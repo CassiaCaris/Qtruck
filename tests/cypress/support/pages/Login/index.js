@@ -26,7 +26,7 @@ class LoginPage {
     mockLocation(latitude, longitude) {
         return {
             onbeforeunload(win) {
-                cy.stub(win.navigator.geolocation, "getCurrentPosition").callsFake((cd,err)=> {
+                cy.stub(win.navigator.geolocation, "getCurrentPosition").callsFake((cb,err)=> {
                     if (latitude && longitude) {
                         return cb({coord: {latitude, longitude}})
                     }
