@@ -1,0 +1,58 @@
+{
+  "valid": {
+    "user": {
+      "name": "Catia",
+      "instagram": "@catia_abreu",
+      "password": "abc123"
+    },
+    "foodtruck": {
+      "latitude": "-23.592414732870456",
+      "longitude": "-46.686285734249395",
+      "name": "Tienda Del Chavo",
+      "details": "O melhor lugar para tomar suco de tamarindo que parece limão",
+      "opening_hours": "das 14h as 20h",
+      "open_on_weekends": false
+    }
+  },
+  "duplicate": {
+    "user": {
+      "name": "Margaret",
+      "instagram": "@margaret",
+      "password": "pwd123"
+    },
+    "foodtruck": {
+      "latitude": "-23.583654062428796",
+      "longitude": "-46.67752861976624",
+      "name": "Churros da Dona Florinda",
+      "details": "O melhor churros mexicado da região.",
+      "opening_hours": "das 15h às 19h",
+      "open_on_weekends": false
+    }
+  },
+  "mandatory": {
+    "user": {
+      "name": "Andre",
+      "instagram": "@margaret",
+      "password": "abc123"
+    },
+    "foodtruck": {
+      "latitude": "-23.926041146019934",
+      "longitude": "-47.282986953791664"
+    }
+  },
+  "location": {
+    "user": {
+      "name": "Tadeu",
+      "instagram": "@Tadeu_ja_foi",
+      "password": "abc123"
+    },
+    "foodtruck": {
+      "latitude": "",
+      "longitude": "",
+      "name": "Casa do Tempurar",
+      "details": "O melhor tempurar da região",
+      "opening_hours": "das 18h as 22h",
+      "open_on_weekends": true
+    }
+  }
+}

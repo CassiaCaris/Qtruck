@@ -1,13 +1,16 @@
-//import { method } from 'cypress/types/bluebird'
 import signupPage from '../support/pages/Signup'
 
 describe('Signup', ()=> {
-    it('deve cadastrar um novo usuário', ()=> {
-        const user = {
-            name: 'Foodtruck Hamburgão',
-            instagram: '@foodtruck_hamburgao',
-            password: 'abc123'
-        }
+
+    beforeEach(()=> {
+        cy.fixture('login-users').then(function (users){
+          this.users = users
+        })
+    })
+
+    it('deve cadastrar um novo usuário', function () {
+        const user = this.users.signup_sucess
+
         cy.apiResetUser(user.instagram)
         signupPage.go()
         signupPage.form(user)
@@ -15,12 +18,9 @@ describe('Signup', ()=> {
         signupPage.modal.haveText('Agora você pode recomendar e/ou avaliar Food trucks.')
     })
 
-    it.only('não deve cadastar com instagram duplicado', ()=> {
-        const user = {
-            name: 'Teste QA',
-            instagram: 'teste_qa',
-            password: '123pwd'
-        }
+    it('não deve cadastar com instagram duplicado', function () {
+        const user = this.users.signup_duplicate
+
         cy.apiCreateUser(user)
         signupPage.go()
         signupPage.form(user)

@@ -1,0 +1,38 @@
+{
+    "success": {
+        "name": "CASSIA",
+        "instagram": "@cassiabrilholuar",
+        "password": "pwd123"
+    },
+
+    "inv_pass": {
+        "instagram": "@cassiabrilholuar",
+        "password": "p123123"
+    },
+    "not_found": {
+        "instagram": "@testcypress",
+        "password": "p123123"
+    },
+    "insta_invalido": {
+        "instagram": "testcypress",
+        "password": "p123123"
+    },
+    "required_insta": {
+        "password": "p123123"
+    },
+    "required_pass": {
+        "instagram": "@testcypress"
+    },
+
+    "signup_sucess":{
+        "name": "Foodtruck Hamburgão",
+        "instagram": "@foodtruck_hamburgao",
+        "password": "abc123"
+    },
+    "signup_duplicate":{
+        "name": "Teste QA",
+        "instagram": "teste_qa",
+        "password": "123pwd"
+    }
+
+}

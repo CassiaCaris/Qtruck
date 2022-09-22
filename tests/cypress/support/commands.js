@@ -90,16 +90,3 @@ Cypress.Commands.add('setGeolocation', (lat, lng)=>{
     localStorage.setItem('qtruck:longitude', lng)
 })
 
-Cypress.Commands.add('validationReview', (user, review)=>{
-    cy.get('.review-box-container')
-          .should('be.visible')
-
-    cy.get('.details > strong')
-          .should('be.visible')
-          .should('have.text', user.name)
-    cy.get('.user .stars')
-          .should('be.visible', review.stars)
-    cy.get('.comment')
-          .should('be.visible')
-          .should('have.text', review.comment)
-})

@@ -1,40 +1,22 @@
 import MapPage from '../support/pages/Map'
+import foodTruckPage from '../support/pages/Foodtruck'
 
 describe('Avaliações', ()=> {
 
     it('deve enviar uma nova avaliação', ()=> {
-        const user = {
-            name: 'Margaret Vitoria',
-            instagram: '@margaret',
-            password: 'pwd123'
-        }
+        cy.fixture('review').as('userReview')
 
-        const foodtruck = {
-            latitude: '-23.653461855213557',
-            longitude: '-47.126447903142974',           
-            name: 'Sucos de todos os tipos',
-            details: 'variedade de suco',
-            opening_hours: '10h as 18h',
-            open_on_weekends: true
-        }
+        cy.get('@userReview').then((data)=> {
+            cy.apiCreateUser(data.user)
+            cy.apiLogin(data.user)
+            cy.apiCreateFoodTruck(data.foodtruck)
 
-        const review = {
-            comment: 'O suco de Limão siciliano estava maravilhoso',
-            stars: 5
-        }
+            cy.uiLogin(data.user)
 
-        cy.apiCreateUser(user)
-        cy.apiLogin(user)
-        cy.apiCreateFoodTruck(foodtruck)
-        cy.uiLogin(user)
-
-        MapPage.goToFoodtruck(foodtruck.name)
-        cy.get('textarea[name=comment]').type(review.comment)
-        cy.get(`input[name=stars][value="${review.stars}"]`)
-          .click({force: true})
-        cy.contains('button', 'Enviar avaliação').click()
-                
-        cy.validationReview(user, review)
+            MapPage.goToFoodtruck(data.foodtruck.name)
+            foodTruckPage.addReview(data.review)
+            foodTruckPage.reviewShouldBe(data.review, data.user)
+        })
     })
 
 })

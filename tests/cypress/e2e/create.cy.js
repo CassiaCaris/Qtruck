@@ -1,23 +1,13 @@
 import mapPage from '../support/pages/Map'
 import createPage from '../support/pages/Create'
+import recommend from '../fixtures/recommend.json'
 
 describe('Recomendação', () => {
+
     it('deve recomendar um food truck', () => {
 
-        const user = {
-            name: 'Catia',
-            instagram: '@catia_abreu',
-            password: 'abc123'
-        }
-
-        const foodtruck = {
-            latitude: '-23.592414732870456',
-            longitude: '-46.686285734249395',
-            name: 'Tienda Del Chavo',
-            details: 'O melhor lugar para tomar suco de tamarindo que parece limão',
-            opening_hours: 'das 14h as 20h',
-            open_on_weekends: false
-        }
+        const user = recommend.valid.user
+        const foodtruck = recommend.valid.foodtruck
 
         cy.apiCreateUser(user)
         cy.uiLogin(user)
@@ -28,20 +18,8 @@ describe('Recomendação', () => {
     })
 
     it('não deve cadastrar foodtruck com o nome duplicado', ()=> {
-        const user = {
-            name: 'Margaret',
-            instagram: '@margaret',
-            password: 'pwd123'
-        }
-
-        const foodtruck = {
-            latitude: '-23.583654062428796',
-            longitude: '-46.67752861976624',
-            name: 'Churros da Dona Florinda',
-            details: 'O melhor churros mexicado da região.',
-            opening_hours: 'das 15h às 19h',
-            open_on_weekends: false
-        }
+        const user = recommend.duplicate.user
+        const foodtruck = recommend.duplicate.foodtruck
 
         cy.apiCreateUser(user)
         cy.apiLogin(user)
@@ -56,17 +34,8 @@ describe('Recomendação', () => {
     })
 
     it('Campos obrigatórias', () => {
-        
-        const user = {
-            name: 'Andre',
-            instagram: '@Andre_santos',
-            password: 'abc123'
-        }
-
-        const foodtruck = {
-            latitude: '-23.926041146019934',
-            longitude: '-47.282986953791664'                                    
-        }
+        const user = recommend.mandatory.user
+        const foodtruck = recommend.mandatory.foodtruck
 
         cy.apiCreateUser(user)
         cy.uiLogin(user)
@@ -78,21 +47,8 @@ describe('Recomendação', () => {
     })
 
     it('Localização obrigatórias', () => {
-        
-        const user = {
-            name: 'Tadeu',
-            instagram: '@Tadeu_ja_foi',
-            password: 'abc123'
-        }
-
-        const foodtruck = {
-            latitude: '-23.592415032890456',
-            longitude: '-46.686290734249395',
-            name: 'Casa do Tempurar',
-            details: 'O melhor tempurar da região',
-            opening_hours: 'das 18h as 22h',
-            open_on_weekends: true
-        }
+        const user = recommend.location.user
+        const foodtruck = recommend.location.foodtruck
 
         cy.apiCreateUser(user)
         cy.uiLogin(user)

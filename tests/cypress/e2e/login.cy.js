@@ -1,13 +1,13 @@
 import loginPage from '../support/pages/Login'
 import mapPage from '../support/pages/Map'
 
+import users from '../fixtures/login-users'
+
 describe('Login', () => {
-  it('deve logar com sucesso', () => {
-    const user = {
-      name: 'CASSIA',
-      instagram: '@cassiabrilholuar',
-      password: 'pwd123'
-    }
+
+  it('deve logar com sucesso', ()=> {
+    const user = users.success
+
     //Aula do dia 16/08 criação de pageObject
     loginPage.go(-23.65730018889836,-47.123408317565925)
     loginPage.form(user)
@@ -16,10 +16,8 @@ describe('Login', () => {
   })
 
   it('nao deve logar com senha incorreta', () => {
-    const user = {
-      instagram: '@cassiabrilholuar',
-      password: 'p123123'
-    }
+    const user = users.inv_pass
+
     loginPage.go()
     loginPage.form(user)
     loginPage.submit()
@@ -28,10 +26,8 @@ describe('Login', () => {
   })
 
   it('nao deve logar com instagram inexistente', () => {
-    const user = {
-      instagram: '@testcypress',
-      password: 'p123123'
-    }
+    const user =  users.not_found
+
     loginPage.go()
     loginPage.form(user)
     loginPage.submit()
@@ -39,10 +35,8 @@ describe('Login', () => {
   })
 
   it('Instagram no formato incorreto', () => {
-    const user = {
-      instagram: 'testcypress',
-      password: 'p123123'
-    }
+    const user = users.insta_invalido
+
     loginPage.go()
     loginPage.form(user)
     loginPage.submit()
@@ -56,9 +50,8 @@ describe('Login', () => {
   })
 
   it('instagram obrigatório', () => {
-    const user = {
-      password: 'p123123'
-    }
+    const user = users.required_insta
+    
     loginPage.go()
     loginPage.form(user)
     loginPage.submit()
@@ -66,10 +59,8 @@ describe('Login', () => {
   })
 
   it('senha obrigatória', () => {
-    const user = {
-      instagram: '@cassiabrilholuar',
-      senha: ''
-    }
+    const user = users.required_pass
+    
     loginPage.go()
     loginPage.form(user)
     loginPage.submit()
