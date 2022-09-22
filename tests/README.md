@@ -55,6 +55,27 @@ $ git clone https://github.com/CassiaCaris/bootcampCypressAvancado.git
   5.2. Peça para executar *_login.cy.js_* <br/>
   5.3  onde irá carregar os cenários de login que foram criados.  <br/>
 
+*_6º Passo - Instalando o Allure para gerar o relatório da execução_* <br/>
+  6.1. Baixar o allure na máquina na pasta de test<br/>
+    ```
+    $ yarn add -D @shelex/cypress-allure-plugin
+    ```  <br/>
+  6.2. Baixar a dependencia do allure-commandline (para a visualização do relatório numa visão mais clara)
+    ```
+    $ yarn add allure-commandline
+    ```  <br/> 
+
+*_7º Passo - Para executar no formato para abrir o relatório do allure_* <br/>
+  7.1. na pasta de test executar o comando (onde a regressão será executada)<br/>
+    ```
+    $ npx cypress run --env allure=true
+    ```  <br/>
+  7.2. Para abrir o relatório no navegador deve ser digitado o comando <br/>
+    ```
+    $ npx allure serve
+    ```  <br/>
+   *Obs.:* Segue informações de como o relatório será disponibilizado <br/>
+  
 *Em manutenção*
 
 *Autora:* Cassia Caris <br/>
