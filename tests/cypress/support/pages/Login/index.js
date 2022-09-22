@@ -6,7 +6,7 @@ class LoginPage {
         this.modal = modal
     }
     
-    go(lat = '-23.65148726603776', long = '-47.21953896063575') {
+    go(lat = '23,65348305912567', long = '-47,12653989264629') {
         cy.visit('/', this.mockLocation(lat, long))
     }
 
