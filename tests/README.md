@@ -9,6 +9,8 @@ Utilizando a estrutura do projeto como PageObject (PO).
 - Nodejs (Versão *16.16*)
 - yarn
 - cypress (verão *10.4.0*)
+- allure 
+- Java (versão *9*)
 
 ## Informações para execução do Projeto
 
