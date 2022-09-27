@@ -1,5 +1,4 @@
 node_modules
-allure-reports
 
 cypress/downloads
 cypress/screenshots
