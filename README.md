@@ -106,7 +106,5 @@ $ git clone https://github.com/CassiaCaris/bootcampCypressAvancado.git
    *Obs.:* Segue informações de como o relatório será disponibilizado <br/>
   
 
-*Em manutenção*
-
 *Autora:* Cassia Caris <br/>
 *Curso:* QAcademy Bootcamp [Avançado em Cypress]
