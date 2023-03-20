@@ -17,7 +17,7 @@ Utilizando a estrutura do projeto como PageObject (PO).</br>
 
 *Clonar o projeto*
 ```
-$ git clone https://github.com/CassiaCaris/bootcampCypressAvancado.git
+$ git clone https://github.com/CassiaCaris/Qtruck.git
 ```
 
 ### Informações baixar as dependencias do Projeto e executa-lo
